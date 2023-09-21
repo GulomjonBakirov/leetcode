@@ -8,4 +8,4 @@ Leetcode Solutions with Go
 
 # Solutions
 
-- [Rotting Oranges](/leetcode/blob/master/rotting-oranges/solution.md)
+- [Rotting Oranges](https://github.com/GulomjonBakirov/leetcode/tree/master/rotting-oranges)
