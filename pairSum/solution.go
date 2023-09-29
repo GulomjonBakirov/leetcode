@@ -5,40 +5,25 @@ import (
 )
 
 func pairSum(head *utils.ListNode) int {
-	cur := head
-	pairX, length := 0, 0
-	pairs := [][2]int{}
 	values := []int{}
 	max := 0
 
-	for cur != nil {
-		length += 1
-		values = append(values, cur.Val)
-		cur = cur.Next
-	}
-	cur = head
-
-	for cur != nil {
-		pairY := length - 1 - pairX
-
-		pairs = append(pairs, [2]int{pairX, pairY})
-
-		pairX += 1
-		cur = cur.Next
+	for head != nil {
+		values = append(values, head.Val)
+		head = head.Next
 	}
 
-	pairs = pairs[:2]
-	cur = head
+	for i := 0; i < len(values); i++ {
+		j := len(values) - 1 - i
 
-	for _, pair := range pairs {
-		if max < values[pair[0]]+values[pair[1]] {
-			max = values[pair[0]] + values[pair[1]]
+		if j < i {
+			break
+		}
+
+		if max < values[j]+values[i] {
+			max = values[j] + values[i]
 		}
 	}
 
 	return max
-}
-
-func findPair(n, i int) int {
-	return n - 1 - i
 }
